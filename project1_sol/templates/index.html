@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{%block title%}
+first page
+{%endblock%}
+{%block body%}
+<h1>User authentication</h1>
+<form action="{{ url_for('login') }}" method="post">
+  <div class="form-group">
+    <input class="form-control" name="username" placeholder="username" type="text" max="20" min="5">
+  </div>
+  <div class="form-group">
+    <input class="form-control" name="password" placeholder="password" type="password" max="15" min="5">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-outline-primary">sign in</button>
+    </div>
+  </form>
+  <div>
+    <a href="{{url_for('signup')}}">signup</a>
+  </div>
+{%endblock%}

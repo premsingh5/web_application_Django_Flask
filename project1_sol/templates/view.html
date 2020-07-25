@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+search results
+{% endblock %}
+{% block body %}
+<h1>hey! user take a look at search results</h1>
+
+<ul>
+  {% for book in input %}
+  <li>
+    <a href="{{ url_for('book',user_id=user_id,book_id=book.id)}}">
+      title : {{ book.title }}, author : {{ book.author }}</a>
+    </li>
+  {% endfor %}
+</ul>
+<a href="logout.html">logout</a>
+{% endblock %}

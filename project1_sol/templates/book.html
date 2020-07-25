@@ -1,0 +1,85 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>book Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel=stylesheet href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <style>
+    .rev{
+      background-color: #473b45;
+      text-align:center;
+
+    }
+    .form-group{
+      background-color: #6f7307;
+    }
+    body{
+      background-color:#073f45;
+    }
+    table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+    }
+
+    th {
+        background-color: lightgray;
+    }
+
+    </style>
+
+</head>
+<body>
+  <div class="info">
+    <table>
+      <tr>
+        <th>Book attribute</th>
+        <th>attribute value</th>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td>{{book.title}}</td>
+      </tr>
+      <tr>
+        <td>author</td>
+        <td>{{book.author}}</td>
+      </tr>
+      <tr>
+        <td>ISBN</td>
+        <td>{{book.isbn}}</td>
+      </tr>
+      <tr>
+        <td>publication year</td>
+        <td>{{book.year}}</td>
+      </tr>
+      </table>
+    </div>
+    <div class="rev">
+      <h2>user reviews</h2>
+      {% for review in reviews %}
+      <p>rating:{{review.rating}}</p>
+      <div>
+        <p>comment:{{review.comment}}</p>
+      </div>
+      {%endfor%}
+      <form action="{{url_for('book',book_id=book.id,user_id=id)}}" method="post">
+        <div class="form-group">
+          <h2>please rate this book</h2>
+          <input class="form-control" type="number" name="rating"  min="1" max="5" placeholder="rate me 1 to 5">
+          <input class="form-control" type="text" name="comment" max="50" placeholder="please leave ur comment here">
+          <button class="btn btn-primary">submit</button>
+        </div>
+      </form>
+  {% if alert%}
+  <div class="alert alert-warning" role="alert">
+  sorry u have already submitted ur review <a href="#" class="alert-link"></a>.
+</div>
+{% endif%}
+</body>
+</html>

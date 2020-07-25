@@ -1,0 +1,21 @@
+{%extends "layout.html"%}
+{%block title%}
+hello
+{%endblock%}
+{%block body%}
+<form action="{{url_for('search',user_id=id1)}}" method="post">
+  <div class="form-group">
+    <input class="form-control" name="isbn" type="text" placeholder="isbn">
+    </div>
+  <div class="form-group">
+    <input class="form-control" name="title" type="text" placeholder="title">
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="author" type="text" placeholder="author">
+      </div>
+    <div class="form-group">
+      <button class="btn btn-outline-primary">search</button>
+      </div>
+    </form>
+    <a href="logout.html">logout</a>
+{%endblock%}
