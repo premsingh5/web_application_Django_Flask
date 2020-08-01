@@ -1,0 +1,35 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>placed_orders</title>
+  <style>
+  .orderitem{
+    background-color:yellow;
+  }
+
+  </style>
+</head>
+<body>
+  {% for item in placed_orders %}
+  <div class="orderitem">
+      <table>
+        <tr>
+          <td>Name:{{item.itemsname}},</td>
+          <td>size:{{item.size}},</td>
+          <td>Price:{{item.price}}USD</td>
+        </tr>
+      <tr>
+      <td><div class="toppings">
+        <hr>
+        <h5>toppings:</h5>
+        {% for topping in item.selectedtoppings %}
+        <p class="toppingsItem">{{topping}}</p>
+        {% endfor %}
+        </div>
+      </td>
+      </tr>
+    </table>
+    </div>
+  {% endfor %}
+</body>
+</html>

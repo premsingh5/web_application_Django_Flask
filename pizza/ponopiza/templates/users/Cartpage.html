@@ -1,0 +1,26 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>My Cart</title>
+</head>
+<body>
+  {% for item in incart %}
+  <div class="incartitem">
+    <table>
+      <tr>
+        <td>Name : {{ item.itemsname }}</td>
+        <td><ul>
+        {% for topping in item.selectedtoppings %}
+        <li>topping : {{ topping }}</li>
+        {%endfor%}
+        </ul></td>
+        <td>Size:{{ item.size }}</td>
+        <td id="price" data-price={{item.price}}>Price:{{ item.price }}USD</td>
+      </tr>
+    </table>
+  </div>
+  {% endfor %}
+  <h5 class="total"></h5>
+  <a id="place" href="{% url 'confirmation' %}">place order</a>
+</body>
+</html>

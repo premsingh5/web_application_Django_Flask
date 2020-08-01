@@ -1,0 +1,37 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>admin app</title>
+  <style>
+    .placedorders{
+      background-color:blue;
+      padding:2px;
+      border:5px solid black;
+    }
+    </style>
+</head>
+<body>
+  {% for item in placedorders %}
+  <div class="placedorders">
+      <table>
+        <tr>
+          <td>User:{{item.orderuser}},</td>
+          <td>Name:{{item.ordername}},</td>
+          <td>size:{{item.size}},</td>
+          <td>price:{{item.price}}USD</td>
+        </tr>
+      <tr>
+      <td><div class="placedtoppings">
+        <hr>
+        <h5>toppings:</h5>
+        {% for topping in item.placedtoppings.all %}
+        <p class="placedtoppingsItem">{{topping}}</p>
+        {% endfor %}
+        </div>
+      </td>
+      </tr>
+    </table>
+    </div>
+  {% endfor %}
+</body>
+</html>
